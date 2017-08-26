@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<style>
+		h1,h2{font-family: tahoma;}
+	</style>
+</head>
+<body>
+	<h3 class="demo">This is demo</h3>
+	<h3 class="demo"></h3>
+	<button onclick="play();">Play</button>
+	<button onclick="stop();">Stop</button>
+
+	<h1>Phương trình bậc 2 :</h1>
+
+	<h2>aX<sup>2</sup> + bX + c = 0;</h2>
+	
+	<h2 class="warning"></h2>
+	<h2>Δ = B<sub>2</sub> - 4ac = <span class="valueDelta"></span></h2>
+	<h2>Phương trình : <span class="pt"></span></h2>
+	<h2>Nghiệm 1 : X <sub>1</sub> = <span class="x1"></span></h2>
+	<h2>Nghiệm 2 : X <sub>2</sub> = <span class="x2"></span></h2>
+	<button onclick="calculator();">Giải phương trình tiêp</button>
+	<script>
+		// var arr =['Thiện','Tri','Trọng','Đạt','Đào','Nhung'];
+		// var a = arr.pop();
+		// console.log(a);
+		// pop();
+		// push();
+		// shift();
+		// unshift();
+		// splice(1,5);
+		// querySelector:
+		// document.querySelector('selector1selector2');
+		// document.querySelector('.demo').innerHTML='Hello World';
+		// var x=document.querySelectorAll('h3');
+		// x[1].innerHTML='Hello World;
+		// Bản thân function ko thực thiện mà phải gọi nó ra	
+		// document.querySelector('.demo').addEventListenter('click',alertMe);
+		// function addme(a=4,b=6){
+		// 	return a+b;
+		// }	
+		// console.log(addme());
+
+
+
+
+
+
+
+
+
+		// function play(){
+		// 	 myVar = setInterval(playAction, 2000);
+		// }
+		// function playAction() {
+  		//   console.log('hello')
+		// }
+		// function stop(){
+		// 	clearInterval(myVar);
+		// 	for (var i = 1; i < 99999; i++){
+		// 		   window.clearInterval(i);
+		// 	}
+     
+		// }
+		
+		function calculator(){
+			var a = prompt('Điền giá trị a');
+			var b = prompt('Điền giá trị b');
+			var c = prompt('Điền giá trị c');
+			if (isNaN(a)||isNaN(b)||isNaN(c)) {
+				document.querySelector('.warning').innerHTML='Vui lòng nhập số';
+				document.querySelector('.pt').innerHTML="";
+				document.querySelector('.x1').innerHTML='';
+				document.querySelector('.x2').innerHTML='';
+				document.querySelector('.valueDelta').innerHTML='';
+				
+			}else{
+				document.querySelector('.warning').innerHTML='';
+				var delta=b*b -(4*a*c);
+				document.querySelector('.valueDelta').innerHTML=delta;
+				if (delta>0) {
+					document.querySelector('.pt').innerHTML="Có 2 nghiệm";
+					var xmot=(-b+Math.sqrt(delta))/(2*a);
+					var xhai=(-b-Math.sqrt(delta))/(2*a);
+					document.querySelector('.x1').innerHTML=xmot;
+					document.querySelector('.x2').innerHTML=xhai;
+				};
+				if (delta==0) {
+					document.querySelector('.pt').innerHTML="Phương trình có nghiệm trùng";
+					var xmot=(-b)/(2*a);
+					var xhai=(-b)/(2*a);
+					document.querySelector('.x1').innerHTML=xmot;
+					document.querySelector('.x2').innerHTML=xhai;
+				};
+				if (delta<0) {
+					document.querySelector('.pt').innerHTML="Không có nghiệm thực";
+					document.querySelector('.x1').innerHTML='Vô nghiệm';
+					document.querySelector('.x2').innerHTML='Vô nghiệm';
+				};
+			}
+			
+		}
+		calculator();
+
+
+
+	</script>
+</body>
+</html>
